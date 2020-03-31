@@ -46,10 +46,10 @@ def predict():
     img = cv2.imread('tmp.png')
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = 255 - img # invert the image because of pytorch mnist dataset
+    img = img / 255. # normalize
     img = cv2.resize(img, (28, 28))
     img = np.expand_dims(img, 2)
-    img = (255. - img) # invert the image because of pytorch mnist dataset
-    img = img / 255. # normalize
     img = np.transpose(img, (2, 0, 1)) # convert to (1, 28, 28)
     img = np.array([img]) # convert to (1, 1, 28, 28)
 

@@ -18,7 +18,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False, 
 
 net = Net()
 # optimizer = optim.SGD(net.parameters(), lr=0.0003, momentum=0.9)
-optimizer = optim.Adam(net.parameters(), lr=0.001)
+optimizer = optim.Adam(net.parameters(), lr=0.0005)
 criterion = nn.CrossEntropyLoss()
 
 net.cuda()
@@ -49,8 +49,6 @@ for epoch in range(30):  # loop over the dataset multiple times
                   (epoch + 1, i + 1, running_loss / 500))
             running_loss = 0.0
 
-        break
-    break
 
 net.eval()
 net.to('cpu')
