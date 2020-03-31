@@ -1,0 +1,6 @@
+__pycache__/
+.vscode/
+data/
+net.model
+tmp.eps
+tmp.png
